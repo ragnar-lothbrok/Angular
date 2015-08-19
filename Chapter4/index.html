@@ -1,0 +1,31 @@
+<html ng-app="myApp">
+
+	<head>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.js"> </script>
+
+		<script>
+			var app = angular.module('myApp', []);
+			app.controller('loops', function($scope) {
+			    $scope.names = [
+			        {name:'Jani',country:'Norway',salary:100000},
+			        {name:'Hege',country:'Sweden',salary:300000},
+			        {name:'Kai',country:'Denmark',salary:200000}
+			    ];
+			}); 
+		</script>
+	</head>
+
+	<body>
+		Name Country Map :
+		<div ng-controller="loops">
+			<p><input type="number" ng-model="test"></p>
+			<ul>
+				<li ng-repeat="item in names |filter:test | orderBy:'salary'">
+					{{ (item.name | uppercase) +' , '+ item.country +' , '+ ((item.salary) | currency:"&euro;") }} 
+				</li>
+			</ul>
+		</div>
+	</body>
+
+</html>

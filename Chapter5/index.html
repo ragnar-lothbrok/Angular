@@ -1,0 +1,22 @@
+<html ng-app="myApp">
+
+	<head>
+<script src= "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.js"> </script>
+		
+		<script src="controller.js"> </script>
+	</head>
+
+	<body>
+		Name Country Map :
+		<div ng-controller="myController">
+			<p><input type="number" ng-model="test"></p>
+			<ul>
+				<li ng-repeat="item in names |filter:test">
+					{{ (item.Name | uppercase) +' , '+ item.Country }} 
+				</li>
+			</ul>
+		</div>
+	</body>
+
+</html>
