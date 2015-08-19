@@ -1,0 +1,34 @@
+<html ng-app="myApp">
+
+	<head>
+<script src= "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.js"> </script>
+		
+		<script src="controller.js"> </script>
+	</head>
+
+	<body>
+		<div ng-app="" ng-init="showthis=true">
+			<p>
+				<input type="checkbox" ng-model="showthis"/>Visible table
+			</p>
+		</div> 
+		<div ng-controller="myController" ng-show="showthis	">
+			<p><input type="text" ng-model="test"></p>
+			<table border="1">
+				<tr ng-repeat="item in names |filter:test" >
+					<td ng-if="$odd" style="background-color:#f1f1f1"><input type="checkbox" ng-disabled="showthis"/></td>
+					<td  ng-if="$odd" style="background-color:#f1f1f1">{{ $index + 1 }}</td>
+					<td  ng-if="$odd" style="background-color:#f1f1f1">{{ (item.Name | uppercase)}}</td>
+					<td  ng-if="$odd" style="background-color:#f1f1f1">{{ item.Country }} </td>
+
+					<td ng-if="$even" ng-click="toggle()"><input type="checkbox" ng-disabled="showthis"/></td>
+					<td  ng-if="$even" >{{ $index + 1 }}</td>
+					<td  ng-if="$even" >{{ (item.Name | uppercase)}}</td>
+					<td  ng-if="$even" >{{ item.Country }} </td>
+				</tr>
+			</table>
+		</div>
+	</body>
+
+</html>

@@ -10,7 +10,7 @@
 	<body>
 		Name Country Map :
 		<div ng-controller="myController">
-			<p><input type="number" ng-model="test"></p>
+			<p><input type="text" ng-model="test"></p>
 			<ul>
 				<li ng-repeat="item in names |filter:test">
 					{{ (item.Name | uppercase) +' , '+ item.Country }} 
